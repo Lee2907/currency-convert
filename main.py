@@ -3,7 +3,7 @@ import tkinter
 import requests
 # creating a window
 
-response = requests.get('https://api.github.com/user', auth=('user', 'pass'))
+response = requests.get('https://api.exchangerate-api.com', auth=('user', 'pass'))
 data = response.json()
 print(data)
 
@@ -18,7 +18,7 @@ l1.grid(row=2, column=0)
 e1 = tkinter.Entry(l1, state="disable")
 e1. grid(row=4, column=0)
 
-# setting the state for Celsius
+# setting the state for Pesos
 def cel_active():
     e2.configure(state='disable')
     e1.configure(state="normal")
@@ -34,7 +34,7 @@ e2 = tkinter.Entry(l2, state="disable")
 e2.grid(row=4, column=5)
 
 
-# setting the state for Fahrenheit
+# setting the state for Rands
 def far_active():
     e1.configure(state="disable")
     e2.configure(state="normal")
@@ -53,7 +53,7 @@ exit_btn = tkinter.Button(text="Exit Program", command=close)
 exit_btn.grid(row=9, column=6)
 
 
-# defining function for converting celsius to fahrenheit
+# defining function for converting Pesos to Dollars
 def convert_C():
     if e1["state"] == "normal" and e1.get() != "":
         peso = int(e1.get())
@@ -61,7 +61,7 @@ def convert_C():
         result_entry.insert(0, str(dollar))
 
 
-# defining function for converting fahrenheit to celsius
+# defining function for converting Rands to Dollars
 def convert_f():
     if e2["state"] == "normal" and e2.get() != "":
         rand = int(e2.get())
@@ -73,8 +73,8 @@ result_btn = tkinter.Button(root, text="Convert A-$", command=convert_C)
 result_btn.grid(row=7, column=2)
 
 
-# creating the action button for converting Fahrenheit to Celsius and calling the convert_f()
-result_btn2 = tkinter.Button(root, text="Convert $-A", command=convert_f)
+# creating the action button for converting Rands to Dollars and calling the convert_f()
+result_btn2 = tkinter.Button(root, text="Convert R-$", command=convert_f)
 result_btn2.grid(row=7, column=4)
 
 
