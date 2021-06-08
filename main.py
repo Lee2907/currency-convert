@@ -3,7 +3,11 @@ import tkinter
 import requests
 # creating a window
 
-response = requests.get('https://api.exchangerate-api.com', auth=('user', 'pass'))
+url = "https://api.exchangerate-api.com"
+exchangekey = "5f5691e2d32d65dbfe9f9300"
+params12 = ['appid', "exchangekey", "rate", "2nd-rate"]
+
+response = requests.get(url,exchangekey,params=params12)
 data = response.json()
 print(data)
 
